@@ -1,11 +1,11 @@
 # MAIN
 import sys
 import time
-import tutorial
+from sub import tutorial
 
 
 def menutopper(complete):
-    MT = open("TextFiles/MenuTopper.txt")
+    MT = open("sub/TextFiles/MenuTopper.txt")
     i = 0
     while i < 8:
         print(MT.readline(), end='')

@@ -2,7 +2,6 @@ import os
 from distutils.core import setup
 import py2exe
 
-
 setup(
     console=[
         {
@@ -10,5 +9,7 @@ setup(
             "icon_resources": [(1, "favicon.ico")]
         }
     ],
-    name="MCText Adventure"
+    name="MCText Adventure",
+    packages=setuptools.find_packages(),
+    include_package_data=True
 )

@@ -1,7 +1,0 @@
-MINECRAFT: The Text Based Adventure is Minecraft in a text-based format.
-When you begin, you will wake up in a random biome with a random amount of resources around you.
-You must learn how to collect resources, build shelter, and survive the nights.
-Eventually you will have to make your way to the END to complete the game.
-Once you complete the game, try to find some of the secret sprinkled across the game.
-They only show up after your completion.
-Good luck!
