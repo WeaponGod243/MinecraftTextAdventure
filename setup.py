@@ -9,7 +9,6 @@ setup(
             "icon_resources": [(1, "favicon.ico")]
         }
     ],
-    name="MCText Adventure",
-    packages=setuptools.find_packages(),
-    include_package_data=True
+    zipfile=None,
+    name="MCText Adventure"
 )
