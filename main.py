@@ -2,14 +2,21 @@
 import sys
 import time
 from sub import tutorial
+import os
 
 
-def menutopper(complete):
+def clear():
+    os.system('cls')
+    print("")
+
+
+def menutopper(complete, wait):
     MT = open("sub/TextFiles/MenuTopper.txt")
     i = 0
     while i < 8:
         print(MT.readline(), end='')
-        time.sleep(0.25)
+        if wait:
+            time.sleep(0.25)
         i += 1
     print(MT.readline())
 
@@ -27,7 +34,7 @@ def menuselection():
             print("That was an invalid choice.")
 
 
-menutopper(1)
+menutopper(1, True)
 while True:
     choice = menuselection()
     if choice == 1:
@@ -36,6 +43,10 @@ while True:
         break
     elif choice == 3:
         tutorial.tutorial()
+        v = input("Press Enter to go back to menu.")
+        clear()
     elif choice == 4:
         print("Thanks for playing! Come back soon!")
+        time.sleep(10)
         sys.exit()
+    menutopper(1, False)
