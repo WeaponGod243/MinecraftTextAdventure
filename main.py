@@ -2,6 +2,7 @@
 import sys
 import time
 from sub import tutorial
+from sub import saveload
 import os
 
 
@@ -38,9 +39,9 @@ menutopper(1, True)
 while True:
     choice = menuselection()
     if choice == 1:
-        break
+        saveload.save(False, "world")  # not in-world formula save
     elif choice == 2:
-        break
+        saveload.save(True, "Wurld")  # in-world formula save
     elif choice == 3:
         tutorial.tutorial()
         v = input("Press Enter to go back to menu.")
