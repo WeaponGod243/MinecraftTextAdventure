@@ -1,3 +1,5 @@
+@echo off
+
 rem *** Used to create a Python exe 
 
 rem ***** get rid of all the old files in the build folder
@@ -14,4 +16,6 @@ robocopy sub dist\sub /E
 
 cd ..
 
-start zip.bat
+call zip.bat
+
+cd MinecraftTextAdventure

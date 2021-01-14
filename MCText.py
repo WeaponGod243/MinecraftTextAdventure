@@ -3,15 +3,12 @@ import sys
 import time
 from sub import tutorial
 from sub import saveload
+from sub import play
 import os
 import ctypes
+from sub.methods import clear
 
 ctypes.windll.kernel32.SetConsoleTitleW("MCText")
-
-
-def clear():
-    os.system('cls')
-    print("")
 
 
 def menutopper(complete, wait):
@@ -45,7 +42,8 @@ while True:
         saveload.save(False, "world")  # not in-world formula save
         clear()
     elif choice == 2:
-        print(saveload.load())  # in-world formula save
+        play.start(saveload.load())  # in-world formula save
+        v = input("Press Enter to go back to menu. (It was just a test load)")
         clear()
     elif choice == 3:
         tutorial.tutorial()
