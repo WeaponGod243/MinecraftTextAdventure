@@ -4,7 +4,14 @@ from sub.methods import clear
 from sub.methods import loadingtiles
 
 
-def start(worldname):
+def load(worldname):
+    global char
+    global location
+    global hunger
+    global health
+    global x
+    global y
+    global z
     print("Loading", end='\n')
     print(loadingtiles("World data", 11, 0), end='\r')
     time.sleep(0.3)
@@ -17,16 +24,16 @@ def start(worldname):
     world = open(filepath, "r+")
     print(loadingtiles("World data", 11, 3), end='\r')
     time.sleep(0.3)
-    char = world.readline()
+    char = world.readline().strip("\n")
     print(loadingtiles("World data", 11, 4), end='\r')
     time.sleep(0.3)
-    location = world.readline()
+    location = world.readline().strip("\n")
     print(loadingtiles("World data", 11, 5), end='\r')
     time.sleep(0.3)
-    hunger = world.readline()
+    hunger = world.readline().strip("\n")
     print(loadingtiles("World data", 11, 6), end='\r')
     time.sleep(0.3)
-    health = world.readline()
+    health = world.readline().strip("\n")
     print(loadingtiles("World data", 11, 7), end='\r')
     time.sleep(0.3)
     coords = location.split(',')
@@ -43,8 +50,12 @@ def start(worldname):
     time.sleep(0.3)
     clear()
     print("Loaded.", end="\r")
-    time.sleep(0.3)
+    time.sleep(0.7)
     print("Loaded..", end="\r")
-    time.sleep(0.3)
+    time.sleep(0.7)
     print("Loaded...", end="\r")
-    time.sleep(0.3)
+    time.sleep(0.7)
+
+
+def start(worldname):
+    load(worldname)
