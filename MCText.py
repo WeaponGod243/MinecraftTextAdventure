@@ -4,6 +4,9 @@ import time
 from sub import tutorial
 from sub import saveload
 import os
+import ctypes
+
+ctypes.windll.kernel32.SetConsoleTitleW("MCText")
 
 
 def clear():
@@ -20,6 +23,9 @@ def menutopper(complete, wait):
             time.sleep(0.25)
         i += 1
     print(MT.readline())
+
+
+
 
 
 def menuselection():

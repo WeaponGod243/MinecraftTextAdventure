@@ -79,13 +79,17 @@ def save(inworld, worldname):
                     char = char + "\n"
                     break
                 print("That was not a proper input.")
-            location = "0,0,0\n"
+            x = str(randint(-2048, 2048))
+            y = str(randint(120, 150))
+            z = str(randint(-2048, 2048))
+            location = x + "," + y + "," + z + "\n"
             hunger = "100\n"
             health = "100\n"
             file = [char, location, hunger, health]
             f.writelines(file)
             print("World has been created")
             input("Press Enter to continue...")
+
 
 def load():
     # TODO create load function
