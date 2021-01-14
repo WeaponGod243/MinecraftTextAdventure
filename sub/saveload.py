@@ -15,7 +15,8 @@ def save(inworld, worldname):
             trash.close()
             f = open(filepath, "w")
             yes = ["Y", "YES"]
-            yn = input("Do you wish to overwrite your previous save?: ").upper()
+            print("Do you wish to overwrite your previous save?")
+            yn = input("-->").upper()
             if yn in yes:
                 char = "Steve\n"
                 location = "89,98,89\n"
@@ -41,7 +42,8 @@ def save(inworld, worldname):
     else:
         # Not in-World formula(create world)
         print("Not In-world")
-        chosenname = input("What name do you want for this world?: ").upper()
+        print("What name do you want for this world?")
+        chosenname = input("-->").upper()
         filename = chosenname + "-save.txt"
         filepath = "sub/saves/" + filename
         try:
@@ -50,10 +52,12 @@ def save(inworld, worldname):
             trash.close()
             f = open(filepath, "w")
             yes = ["Y", "YES"]
-            yn = input("Do you wish to overwrite your previous save named " + chosenname + "?: ").upper()
+            print("Do you wish to overwrite your previous save named " + chosenname + "?")
+            yn = input("-->").upper()
             if yn in yes:
                 while True:
-                    char = input("Input the character name for this world: ")
+                    print("Input the character name for this world")
+                    char = input("-->")
                     if char.isalnum():
                         char = char + "\n"
                         break
@@ -74,7 +78,8 @@ def save(inworld, worldname):
             # File does not exist
             f = open(filepath, "w+")
             while True:
-                char = input("Input the character name for this world: ")
+                print("Input the character name for this world")
+                char = input("-->")
                 if char.isalnum():
                     char = char + "\n"
                     break
@@ -92,5 +97,32 @@ def save(inworld, worldname):
 
 
 def load():
+    """Loads the world file"""
     # TODO create load function
     print("load")
+    sd = "sub/saves"
+    flist = os.listdir(sd)
+    wlist = []
+    for i in flist:
+        index = i.find("-")
+        wname = i[0:index]
+        wlist.append(wname)
+
+    print("Which save would you like to load?")
+    print("--------------------")
+    j = 1
+    for n in wlist:
+        print("[%d]%s" % (j, n))
+        j += 1
+    while True:
+        try:
+            decide = input("-->")
+            if decide.isnumeric():
+                worldname = wlist[int(decide)-1]
+                break
+            else:
+                print("Incorrect input")
+        except IndexError:
+            print("That number is too high for the selection. Try again.")
+
+    return worldname

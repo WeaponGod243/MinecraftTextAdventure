@@ -25,9 +25,6 @@ def menutopper(complete, wait):
     print(MT.readline())
 
 
-
-
-
 def menuselection():
     print("-----------------------------------------------------")
     print("[1]New Game | [2]Load | [3] Tutorial | [4]Quit".center(53))
@@ -48,7 +45,7 @@ while True:
         saveload.save(False, "world")  # not in-world formula save
         clear()
     elif choice == 2:
-        saveload.save(True, "Wurld")  # in-world formula save
+        print(saveload.load())  # in-world formula save
         clear()
     elif choice == 3:
         tutorial.tutorial()
@@ -56,6 +53,6 @@ while True:
         clear()
     elif choice == 4:
         print("Thanks for playing! Come back soon!")
-        time.sleep(10)
+        time.sleep(5)
         sys.exit()
     menutopper(1, False)
