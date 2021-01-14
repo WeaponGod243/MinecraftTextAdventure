@@ -5,7 +5,7 @@ import py2exe
 setup(
     console=[
         {
-            "script": "main.py",
+            "script": "MCText.py",
             "icon_resources": [(1, "favicon.ico")]
         }
     ],

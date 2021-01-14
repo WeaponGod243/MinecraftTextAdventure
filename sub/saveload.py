@@ -1,4 +1,5 @@
 import os
+from random import *
 
 
 def save(inworld, worldname):
@@ -6,7 +7,7 @@ def save(inworld, worldname):
     if inworld:
         # in-World formula(save world)
         print("In-world")
-        filename = worldname + "-save.txt"
+        filename = worldname.upper() + "-save.txt"
         filepath = "sub/saves/" + filename
         try:
             # File Exists
@@ -25,6 +26,7 @@ def save(inworld, worldname):
                 print("World has been saved")
             else:
                 print("Cancelling save")
+            input("Press Enter to continue...")
         except FileNotFoundError:
             # File does not exist
             f = open(filepath, "w+")
@@ -35,10 +37,11 @@ def save(inworld, worldname):
             file = [char, location, hunger, health]
             f.writelines(file)
             print("World has been saved")
+            input("Press Enter to continue...")
     else:
         # Not in-World formula(create world)
         print("Not In-world")
-        chosenname = input("What name do you want for this world?: ")
+        chosenname = input("What name do you want for this world?: ").upper()
         filename = chosenname + "-save.txt"
         filepath = "sub/saves/" + filename
         try:
@@ -49,8 +52,16 @@ def save(inworld, worldname):
             yes = ["Y", "YES"]
             yn = input("Do you wish to overwrite your previous save named " + chosenname + "?: ").upper()
             if yn in yes:
-                char = "Steve\n"
-                location = "0,0,0\n"
+                while True:
+                    char = input("Input the character name for this world: ")
+                    if char.isalnum():
+                        char = char + "\n"
+                        break
+                    print("That was not a proper input.")
+                x = str(randint(-2048, 2048))
+                y = str(randint(120, 150))
+                z = str(randint(-2048, 2048))
+                location = x + "," + y + "," + z + "\n"
                 hunger = "100\n"
                 health = "100\n"
                 file = [char, location, hunger, health]
@@ -58,17 +69,23 @@ def save(inworld, worldname):
                 print("World has been overwritten")
             else:
                 print("Cancelling Creation")
+            input("Press Enter to continue...")
         except FileNotFoundError:
             # File does not exist
             f = open(filepath, "w+")
-            char = "Steve\n"
+            while True:
+                char = input("Input the character name for this world: ")
+                if char.isalnum():
+                    char = char + "\n"
+                    break
+                print("That was not a proper input.")
             location = "0,0,0\n"
             hunger = "100\n"
             health = "100\n"
             file = [char, location, hunger, health]
             f.writelines(file)
             print("World has been created")
-
+            input("Press Enter to continue...")
 
 def load():
     # TODO create load function
