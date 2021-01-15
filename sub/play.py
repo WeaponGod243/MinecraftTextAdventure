@@ -93,7 +93,7 @@ def gameplay():
     clear()
     stats()
     print("You wake up in your world. What will you do?")
-    choc = 8
+    choc = choices()
     if choc == 1:
         print("choice1")
     elif choc == 2:
