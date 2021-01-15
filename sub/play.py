@@ -57,5 +57,22 @@ def load(worldname):
     time.sleep(0.7)
 
 
+def stats():
+    print("=======================================================")
+    chara = char.ljust(8)
+    hxh = "HP " + health + "/Hunger " + hunger
+    hxh = hxh.ljust(16)
+    locat = location.ljust(14)
+    stats_heading = chara + "   " + hxh + "  Location: " + locat + "\n"
+    print(stats_heading)
+
+
+def gameplay():
+    clear()
+    stats()
+    print("This is cool text placeholder. *puts on sunglasses* \n")
+
+
 def start(worldname):
     load(worldname)
+    gameplay()

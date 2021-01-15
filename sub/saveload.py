@@ -20,8 +20,8 @@ def save(inworld, worldname):
             if yn in yes:
                 char = "Steve\n"
                 location = "89,98,89\n"
-                hunger = "50\n"
-                health = "50\n"
+                hunger = "20\n"
+                health = "20\n"
                 file = [char, location, hunger, health]
                 f.writelines(file)
                 print("World has been saved")
@@ -33,8 +33,8 @@ def save(inworld, worldname):
             f = open(filepath, "w+")
             char = "Steve\n"
             location = "89,98,89\n"
-            hunger = "50\n"
-            health = "50\n"
+            hunger = "20\n"
+            health = "20\n"
             file = [char, location, hunger, health]
             f.writelines(file)
             print("World has been saved")
@@ -58,16 +58,19 @@ def save(inworld, worldname):
                 while True:
                     print("Input the character name for this world")
                     char = input("-->")
-                    if char.isalnum():
-                        char = char + "\n"
-                        break
-                    print("That was not a proper input.")
+                    if len(char) < 8:
+                        if char.isalnum():
+                            char = char + "\n"
+                            break
+                        print("That was not a proper input.")
+                    else:
+                        print("Maximum 8 characters")
                 x = str(randint(-2048, 2048))
                 y = str(randint(120, 150))
                 z = str(randint(-2048, 2048))
                 location = x + "," + y + "," + z + "\n"
-                hunger = "100\n"
-                health = "100\n"
+                hunger = "20\n"
+                health = "20\n"
                 file = [char, location, hunger, health]
                 f.writelines(file)
                 print("World has been overwritten")
@@ -80,16 +83,19 @@ def save(inworld, worldname):
             while True:
                 print("Input the character name for this world")
                 char = input("-->")
-                if char.isalnum():
-                    char = char + "\n"
-                    break
-                print("That was not a proper input.")
+                if len(char) < 8:
+                    if char.isalnum():
+                        char = char + "\n"
+                        break
+                    print("That was not a proper input.")
+                else:
+                    print("Maximum 8 characters")
             x = str(randint(-2048, 2048))
             y = str(randint(120, 150))
             z = str(randint(-2048, 2048))
             location = x + "," + y + "," + z + "\n"
-            hunger = "100\n"
-            health = "100\n"
+            hunger = "20\n"
+            health = "20\n"
             file = [char, location, hunger, health]
             f.writelines(file)
             print("World has been created")
