@@ -9,6 +9,7 @@ import ctypes
 from sub.methods import clear
 
 ctypes.windll.kernel32.SetConsoleTitleW("MCText")
+os.system('COLOR 02')
 
 
 def menutopper(complete, wait):

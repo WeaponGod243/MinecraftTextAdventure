@@ -41,7 +41,6 @@ def save(inworld, worldname):
             input("Press Enter to continue...")
     else:
         # Not in-World formula(create world)
-        print("Not In-world")
         print("What name do you want for this world?")
         chosenname = input("-->").upper()
         filename = chosenname + "-save.txt"
@@ -104,8 +103,6 @@ def save(inworld, worldname):
 
 def load():
     """Loads the world file"""
-    # TODO create load function
-    print("load")
     sd = "sub/saves"
     flist = os.listdir(sd)
     wlist = []
